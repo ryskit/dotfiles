@@ -46,7 +46,7 @@ set smartindent
 " タブ文字の表示幅
 set tabstop=2
 " Vimが挿入するインデントの幅
-set shiftwidth=2
+set shiftwidth=4
 " 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする
 set smarttab
 " カーソルを行頭、行末で止まらないようにする
@@ -78,6 +78,23 @@ NeoBundle 'scrooloose/nerdtree'
 " syntastic
 NeoBundle 'scrooloose/syntastic'
 
+" ファイルオープンを便利に
+NeoBundle 'Shougo/unite.vim'
+
+" Unite.vimで最近使ったファイルを表示できるようにする
+NeoBundle 'Shougo/neomru.vim'
+
+" Ruby向けにendを自動挿入してくれる
+NeoBundle 'tpope/vim-endwise'
+
+" コメントON/OFFを手軽に実行
+NeoBundle 'tomtom/tcomment_vim'
+
+" vim-autoclose
+NeoBundle 'Townk/vim-autoclose'
+
+
+
 call neobundle#end()
     
 " Required:
@@ -91,3 +108,15 @@ NeoBundleCheck
 "-------------------------
 " End Neobundle Settings.
 "-------------------------
+
+""""""""""""""""""""""""""""""
+" Unit.vimの設定
+""""""""""""""""""""""""""""""
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable =1
+let g:unite_source_file_mru_limit = 200
+nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>

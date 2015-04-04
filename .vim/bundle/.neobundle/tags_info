@@ -1,3 +1,8 @@
 neobundle.vim
+neomru.vim
 nerdtree
 syntastic
+tcomment_vim
+unite.vim
+vim-autoclose
+vim-endwise
