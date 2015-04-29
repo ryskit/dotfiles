@@ -1,4 +1,22 @@
 """"""""""""""""""""""""""""""
+"keymap
+""""""""""""""""""""""""""""""
+" 挿入モードでのカーソル移動
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+
+" insertモードから抜ける
+inoremap <silent> jj <ESC>
+
+noremap <S-h>   ^
+noremap <S-j>   }
+noremap <S-k>   {
+noremap <S-l>   $
+" ノーマルモードでもリターンキーで改行できる
+nnoremap <CR> A<CR><ESC>
+""""""""""""""""""""""""""""""
 "各種オプションの設定
 """"""""""""""""""""""""""""""
 " スワップファイルは使わない
@@ -76,7 +94,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
   
 " NERDTreeを設定
-NeoBundle 'scrooloose/nerdtree'
+"NeoBundle 'scrooloose/nerdtree'"
 
 " syntastic
 NeoBundle 'scrooloose/syntastic'
