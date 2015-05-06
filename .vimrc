@@ -1,4 +1,4 @@
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""
 "keymap
 """"""""""""""""""""""""""""""
 " 挿入モードでのカーソル移動
@@ -64,6 +64,7 @@ set showmatch
 set autoindent
 " 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 set smartindent
+set notitle
 " タブ文字の表示幅
 set tabstop=4
 " Vimが挿入するインデントの幅
@@ -79,7 +80,6 @@ colorscheme hybrid
 " 行番号の色
 highlight LineNr ctermfg=darkyellow
 
-""""""""""""""""""""""""""
 
 "---------------------------
 "" Start Neobundle Settings.
@@ -114,7 +114,44 @@ NeoBundle 'tomtom/tcomment_vim'
 " vim-autoclose
 NeoBundle 'Townk/vim-autoclose'
 
+" NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグ ル)
+NeoBundle 'scrooloose/nerdcommenter.git'
 
+" XMLとかHTMLとかの編集機能を強化する
+NeoBundle 'xmledit'
+
+" surround.vim : テキストを括弧で囲む／削除する
+NeoBundle 'tpope/vim-surround'
+
+" smartchr.vim : ==などの前後を整形
+NeoBundle 'smartchr'
+
+" <C-a>でtrue/false切替。他色々
+NeoBundle 'taku-o/vim-toggle'
+
+" 補完 neocomplcache.vim : 究極のVim的補完環境
+NeoBundle 'Shougo/neocomplcache'
+
+" vim-smartword : 単語移動がスマートな感じで
+NeoBundle 'smartword'
+
+" open-browser.vim : カーソルの下のURLを開くor単語を検索エンジンで検索
+NeoBundle 'tyru/open-browser.vim'
+
+" vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
+NeoBundle 'vim-ruby/vim-ruby'
+
+" rails.vim : rails的なアレ
+NeoBundle 'tpope/vim-rails'
+
+" ソースコード上のメソッド宣言、変数宣言の一覧を表示
+NeoBundle 'taglist.vim'
+
+" vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
+NeoBundle 'vtreeexplorer'
+
+" ステータスラインをカッコよくする
+NeoBundle 'Lokaltog/vim-powerline'
 
 call neobundle#end()
     
@@ -123,7 +160,6 @@ filetype plugin indent on
      
 " 未インストールのプラグインがある場合、インストールするかどうかを尋ね
 " てくれるようにする設定
-" 毎回聞かれると邪魔な場合もあるので、この設定は任意です。
 NeoBundleCheck
 
 "-------------------------
@@ -133,7 +169,7 @@ NeoBundleCheck
 """"""""""""""""""""""""""""""
 " Unit.vimの設定
 """"""""""""""""""""""""""""""
-let g:unite_enable_start_insert=1
+"let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
 nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
