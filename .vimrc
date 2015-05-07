@@ -1,12 +1,39 @@
 """""""""""""""""""""""""""""
 "keymap
 """"""""""""""""""""""""""""""
+nnoremap s <Nop>
+" 分割したウィンドウ間の移動
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sw <C-w>w
+" 分割したウィンドウそのものを移動
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
+" ウィンドウを分割
+""" 水平分割
+nnoremap ss :<C-u>sp<CR>
+""" 垂直分割
+nnoremap sv :<C-u>vs<CR>
+" タブページ関連
+""" 新規タブ
+nnoremap st :<C-u>tabnew<CR>
+""" 次のタブに切り替え
+nnoremap sn gt
+""" 前のタブに切り替え
+nnoremap sp gT
 " 挿入モードでのカーソル移動
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
-
+" ウィンドウを閉じる
+nnoremap sq :<C-u>q<CR>
+" バッファを閉じる
+nnoremap sQ :<C-u>bd<CR>
 " insertモードから抜ける
 inoremap <silent> jj <ESC>
 
@@ -16,6 +43,7 @@ noremap <S-k>   {
 noremap <S-l>   $
 " ノーマルモードでもリターンキーで改行できる
 nnoremap <CR> A<CR><ESC>
+
 """"""""""""""""""""""""""""""
 "各種オプションの設定
 """"""""""""""""""""""""""""""
@@ -94,7 +122,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
   
 " NERDTreeを設定
-NeoBundle 'scrooloose/nerdtree'"
+NeoBundle 'scrooloose/nerdtree'
 
 " syntastic
 NeoBundle 'scrooloose/syntastic'
@@ -172,8 +200,12 @@ NeoBundleCheck
 "let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
-nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
+nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+
+"""""""""""""""""""""""""""""
+" NERDTree
+"""""""""""""""""""""""""""""
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
