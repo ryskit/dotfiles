@@ -94,7 +94,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
   
 " NERDTreeを設定
-"NeoBundle 'scrooloose/nerdtree'"
+NeoBundle 'scrooloose/nerdtree'"
 
 " syntastic
 NeoBundle 'scrooloose/syntastic'
