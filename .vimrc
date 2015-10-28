@@ -94,21 +94,19 @@ set autoindent
 set smartindent
 set notitle
 " タブ文字の表示幅
-set tabstop=4
+set tabstop=2
 " Vimが挿入するインデントの幅
-set shiftwidth=4
+set shiftwidth=2
 " 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする
 set smarttab
 " カーソルを行頭、行末で止まらないようにする
 set whichwrap=b,s,h,l,<,>,[,]
 " 構文毎に文字色を変化させる
-syntax on
+syntax enable
 " カラースキーマの指定
-colorscheme vimbrant
+colorscheme solarized
 " 行番号の色
-highlight ColorColumn ctermbg=7
-highlight ColorColumn guibg=Gray
-
+:highlight LineNr ctermfg=154
 
 "---------------------------
 "" Start Neobundle Settings.
