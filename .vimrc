@@ -44,6 +44,10 @@ noremap <S-l>   $
 " ノーマルモードでもリターンキーで改行できる
 nnoremap <CR> A<CR><ESC>
 
+" xキーで文字を削除してもヤンクした内容が消えないようにする
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
 """"""""""""""""""""""""""""""
 "各種オプションの設定
 """"""""""""""""""""""""""""""
