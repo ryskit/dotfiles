@@ -124,6 +124,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " neobundle自体をneobundleで管理
 NeoBundleFetch 'Shougo/neobundle.vim'
   
+" vimfiler
+nnoremap <leader>e :VimFilerExplore -split -winwidth=30 -find -no-quit<Cr>
 
 " syntastic
 NeoBundle 'scrooloose/syntastic'
@@ -203,7 +205,7 @@ nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 
-"""""""""""""""""""""""""""""
-" NERDTree
-"""""""""""""""""""""""""""""
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
+""""""""""""""""""""""""""""""
+" vimfiler
+""""""""""""""""""""""""""""""
+nnoremap <leader>e :VimFilerExplore -split -winwidth=30 -find -no-quit<Cr>
