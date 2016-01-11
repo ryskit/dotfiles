@@ -124,8 +124,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " neobundle自体をneobundleで管理
 NeoBundleFetch 'Shougo/neobundle.vim'
   
-" NERDTreeを設定
-NeoBundle 'scrooloose/nerdtree'
 
 " syntastic
 NeoBundle 'scrooloose/syntastic'
@@ -144,9 +142,6 @@ NeoBundle 'tomtom/tcomment_vim'
 
 " vim-autoclose
 NeoBundle 'Townk/vim-autoclose'
-
-" NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグ ル)
-NeoBundle 'scrooloose/nerdcommenter.git'
 
 " XMLとかHTMLとかの編集機能を強化する
 NeoBundle 'xmledit'
