@@ -19,9 +19,11 @@ nnoremap ss :<C-u>sp<CR>
 """ 垂直分割
 nnoremap sv :<C-u>vs<CR>
 " タブページ関連
-""" 新規タブ
+
+" 新規タブ
 nnoremap st :<C-u>tabnew<CR>
-""" 次のタブに切り替え
+
+" 次のタブに切り替え
 nnoremap sn gt
 """ 前のタブに切り替え
 nnoremap sp gT
@@ -36,7 +38,6 @@ nnoremap sq :<C-u>q<CR>
 nnoremap sQ :<C-u>bd<CR>
 " insertモードから抜ける
 inoremap <silent> jj <ESC>
-
 noremap <S-h>   ^
 noremap <S-j>   }
 noremap <S-k>   {
@@ -54,7 +55,7 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 " スワップファイルは使わない
 set noswapfile
 "UNDO ファイルを作成しない
-:set noundofile
+set noundofile
 " BACKUPファイルを作成しない
 set nobackup
 " カーソルが何行目の何列目に置かれているかを表示する
@@ -106,11 +107,11 @@ set smarttab
 " カーソルを行頭、行末で止まらないようにする
 set whichwrap=b,s,h,l,<,>,[,]
 " 構文毎に文字色を変化させる
-syntax enable
+syntax on
 " カラースキーマの指定
 colorscheme solarized
 " 行番号の色
-:highlight LineNr ctermfg=154
+highlight LineNr ctermfg=154
 
 "---------------------------
 "" Start Neobundle Settings.
@@ -123,71 +124,50 @@ call neobundle#begin(expand('~/.vim/bundle/'))
  
 " neobundle自体をneobundleで管理
 NeoBundleFetch 'Shougo/neobundle.vim'
-  
 " vimfiler
-nnoremap <leader>e :VimFilerExplore -split -winwidth=30 -find -no-quit<Cr>
-
+NeoBundle 'Shougo/vimfiler'
+" vimproc
+NeoBundle 'Shougo/vimproc'
 " syntastic
 NeoBundle 'scrooloose/syntastic'
-
 " ファイルオープンを便利に
 NeoBundle 'Shougo/unite.vim'
-
 " Unite.vimで最近使ったファイルを表示できるようにする
 NeoBundle 'Shougo/neomru.vim'
-
 " Ruby向けにendを自動挿入してくれる
 NeoBundle 'tpope/vim-endwise'
-
 " コメントON/OFFを手軽に実行
 NeoBundle 'tomtom/tcomment_vim'
-
 " vim-autoclose
 NeoBundle 'Townk/vim-autoclose'
-
 " XMLとかHTMLとかの編集機能を強化する
 NeoBundle 'xmledit'
-
 " surround.vim : テキストを括弧で囲む／削除する
 NeoBundle 'tpope/vim-surround'
-
 " smartchr.vim : ==などの前後を整形
 NeoBundle 'smartchr'
-
 " <C-a>でtrue/false切替。他色々
 NeoBundle 'taku-o/vim-toggle'
-
 " 補完 neocomplcache.vim : 究極のVim的補完環境
 NeoBundle 'Shougo/neocomplcache'
-
 " vim-smartword : 単語移動がスマートな感じで
 NeoBundle 'smartword'
-
 " open-browser.vim : カーソルの下のURLを開くor単語を検索エンジンで検索
 NeoBundle 'tyru/open-browser.vim'
-
 " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
 NeoBundle 'vim-ruby/vim-ruby'
-
 " rails.vim : rails的なアレ
 NeoBundle 'tpope/vim-rails'
-
 " ソースコード上のメソッド宣言、変数宣言の一覧を表示
 NeoBundle 'taglist.vim'
-
 " vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
 NeoBundle 'vtreeexplorer'
-
 " ステータスラインをカッコよくする
 NeoBundle 'Lokaltog/vim-powerline'
-
 call neobundle#end()
-    
-" Required:
 filetype plugin indent on
      
-" 未インストールのプラグインがある場合、インストールするかどうかを尋ね
-" てくれるようにする設定
+" 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
 NeoBundleCheck
 
 "-------------------------
@@ -208,4 +188,7 @@ nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 """"""""""""""""""""""""""""""
 " vimfiler
 """"""""""""""""""""""""""""""
-nnoremap <leader>e :VimFilerExplore -split -winwidth=30 -find -no-quit<Cr>
+nnoremap <C-e> :VimFiler -split -simple -winwidth=35 -no-quit<CR>
+
+" 検索結果のハイライトをEsc連打でクリアする
+nnoremap <ESC><ESC> :nohlsearch<CR>
