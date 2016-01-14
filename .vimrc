@@ -124,8 +124,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
  
 " neobundle自体をneobundleで管理
 NeoBundleFetch 'Shougo/neobundle.vim'
-" vimfiler
-NeoBundle 'Shougo/vimfiler'
+" nerdtree
+NeoBundle 'scrooloose/nerdtree'
 " vimproc
 NeoBundle 'Shougo/vimproc'
 " syntastic
@@ -186,9 +186,14 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 
 """"""""""""""""""""""""""""""
+" nerdtree
+""""""""""""""""""""""""""""""
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+""""""""""""""""""""""""""""""
 " vimfiler
 """"""""""""""""""""""""""""""
-nnoremap <C-e> :VimFiler -split -simple -winwidth=35 -no-quit<CR>
+"nnoremap <C-e> :VimFiler -split -simple -winwidth=35 -no-quit<CR>
 
 " 検索結果のハイライトをEsc連打でクリアする
 nnoremap <ESC><ESC> :nohlsearch<CR>
