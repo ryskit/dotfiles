@@ -117,53 +117,111 @@ highlight LineNr ctermfg=154
 "" Start Neobundle Settings.
 "---------------------------
 "" bundleで管理するディレクトリを指定
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+if has('vim_starting')
+  if &compatible
+    " Be iMproved
+    set nocompatible  
+  endif
+
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
  
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
  
 " neobundle自体をneobundleで管理
 NeoBundleFetch 'Shougo/neobundle.vim'
+
 " nerdtree
 NeoBundle 'scrooloose/nerdtree'
+
 " vimproc
 NeoBundle 'Shougo/vimproc'
+
 " syntastic
 NeoBundle 'scrooloose/syntastic'
+
 " ファイルオープンを便利に
 NeoBundle 'Shougo/unite.vim'
+
 " Unite.vimで最近使ったファイルを表示できるようにする
 NeoBundle 'Shougo/neomru.vim'
+
 " Ruby向けにendを自動挿入してくれる
 NeoBundle 'tpope/vim-endwise'
+
 " コメントON/OFFを手軽に実行
 NeoBundle 'tomtom/tcomment_vim'
+
 " vim-autoclose
 NeoBundle 'Townk/vim-autoclose'
+
 " XMLとかHTMLとかの編集機能を強化する
 NeoBundle 'xmledit'
+
 " surround.vim : テキストを括弧で囲む／削除する
 NeoBundle 'tpope/vim-surround'
+
 " smartchr.vim : ==などの前後を整形
+
 NeoBundle 'smartchr'
 " <C-a>でtrue/false切替。他色々
+
 NeoBundle 'taku-o/vim-toggle'
-" 補完 neocomplcache.vim : 究極のVim的補完環境
-NeoBundle 'Shougo/neocomplcache'
+" 補完
+" if_luaが有効ならneocompleteを使う
+NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
+if neobundle#is_installed('neocomplete')
+  " neocomplete用設定
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#enable_ignore_case = 1
+  let g:neocomplete#enable_smart_case = 1
+  if !exists('g:neocomplete#keyword_patterns')
+      let g:neocomplete#keyword_patterns = {}
+  endif
+  let g:neocomplete#keyword_patterns._ = '\h\w*'
+elseif neobundle#is_installed('neocomplcache')
+  " neocomplcache用設定
+  let g:neocomplcache_enable_at_startup = 1
+  let g:neocomplcache_enable_ignore_case = 1
+  let g:neocomplcache_enable_smart_case = 1
+  if !exists('g:neocomplcache_keyword_patterns')
+      let g:neocomplcache_keyword_patterns = {}
+  endif
+  let g:neocomplcache_keyword_patterns._ = '\h\w*'
+  let g:neocomplcache_enable_camel_case_completion = 1
+  let g:neocomplcache_enable_underbar_completion = 1
+endif
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+
 " vim-smartword : 単語移動がスマートな感じで
 NeoBundle 'smartword'
+
 " open-browser.vim : カーソルの下のURLを開くor単語を検索エンジンで検索
 NeoBundle 'tyru/open-browser.vim'
+
 " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
 NeoBundle 'vim-ruby/vim-ruby'
+
 " rails.vim : rails的なアレ
 NeoBundle 'tpope/vim-rails'
+
 " ソースコード上のメソッド宣言、変数宣言の一覧を表示
 NeoBundle 'taglist.vim'
-" vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
-NeoBundle 'vtreeexplorer'
+
 " ステータスラインをカッコよくする
 NeoBundle 'Lokaltog/vim-powerline'
+
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'taichouchou2/html5.vim'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'open-browser.vim'
+NeoBundle 'tell-k/vim-browsereload-mac'
+NeoBundle 'grep.vim'
 call neobundle#end()
 filetype plugin indent on
      
