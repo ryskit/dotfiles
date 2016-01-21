@@ -112,7 +112,8 @@ syntax on
 colorscheme solarized
 " 行番号の色
 highlight LineNr ctermfg=154
-
+" インデントガイド
+set list listchars=tab:\¦\
 "---------------------------
 "" Start Neobundle Settings.
 "---------------------------
@@ -217,11 +218,14 @@ NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'taichouchou2/html5.vim'
+"NeoBundle 'taichouchou2/html5.vim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'open-browser.vim'
 NeoBundle 'tell-k/vim-browsereload-mac'
 NeoBundle 'grep.vim'
+NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'junegunn/vim-easy-align'
+
 call neobundle#end()
 filetype plugin indent on
      
@@ -253,5 +257,21 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 """"""""""""""""""""""""""""""
 "nnoremap <C-e> :VimFiler -split -simple -winwidth=35 -no-quit<CR>
 
+""""""""""""""""""""""""""""""
 " 検索結果のハイライトをEsc連打でクリアする
+""""""""""""""""""""""""""""""
 nnoremap <ESC><ESC> :nohlsearch<CR>
+
+""""""""""""""""""""""""""""""
+" IndentLine
+""""""""""""""""""""""""""""""
+let g:indentLine_faster = 1
+nmap <silent><Leader>i :<C-u>IndentLinesToggle<CR>
+
+""""""""""""""""""""""""""""""
+" カーソル下のURLをブラウザで開く
+""""""""""""""""""""""""""""""
+nmap <Leader>o <Plug>(openbrowser-open)
+vmap <Leader>o <Plug>(openbrowser-open)
+" ググる
+nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
