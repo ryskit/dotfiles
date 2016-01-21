@@ -165,7 +165,6 @@ NeoBundle 'xmledit'
 NeoBundle 'tpope/vim-surround'
 
 " smartchr.vim : ==などの前後を整形
-
 NeoBundle 'smartchr'
 " <C-a>でtrue/false切替。他色々
 
@@ -225,6 +224,8 @@ NeoBundle 'tell-k/vim-browsereload-mac'
 NeoBundle 'grep.vim'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'kmnk/vim-unite-giti'
+NeoBundle 'tpope/vim-fugitive'
 
 call neobundle#end()
 filetype plugin indent on
@@ -242,6 +243,7 @@ NeoBundleCheck
 "let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
+
 nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
