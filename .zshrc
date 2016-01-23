@@ -11,11 +11,13 @@ alias sudo='sudo '
 # --------------------
 # Git Ariases
 # --------------------
+export GIT_EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias ga='git add'
 alias gaa='git add .'
 alias gaaa='git add -A'
 alias gb='git branch'
 alias gbd='git branch -d '
+alias gba='git branch -a'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gco='git checkout'
