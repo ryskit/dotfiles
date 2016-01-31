@@ -29,6 +29,7 @@ alias gi='git init'
 alias gl='git log'
 alias glg='git log --graph --oneline --decorate --all'
 alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
+alias gf='git fetch'
 alias gm='git merge --no-ff'
 alias gpl='git pull'
 alias gph='git push'
@@ -38,6 +39,7 @@ alias gst='git stash'
 alias gstl='git stash list'
 alias gstp='git stash pop'
 alias gstd='git stash drop'
+alias gcfl='git config -l'
 
 export PATH=/usr/local/bin:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
