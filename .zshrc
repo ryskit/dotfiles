@@ -41,10 +41,22 @@ alias gstp='git stash pop'
 alias gstd='git stash drop'
 alias gcnfl='git config -l'
 
-export PATH="/Applications/MAMP/bin/php/php5.6.10/bin:$PATH"
+#--------------------
+# export
+#--------------------
+export PATH="/Applications/MAMP/bin/php/php7.0.0/bin:$PATH"
+export PATH="/Applications/MAMP/Library/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+export PATH=/usr/local/bin:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PGDATA=/usr/local/var/postgres
 eval "$(rbenv init -)"
+export PYENV_ROOT=${HOME}/.pyenv
+if [ -d "${PYENV_ROOT}" ]; then
+  export PATH=${PYENV_ROOT}/bin:$PATH
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -81,3 +93,7 @@ setopt auto_cd
 
 # 高機能なワイルドカード展開を使用する
 setopt extended_glob
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/rysk/.sdkman"
+[[ -s "/Users/rysk/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/rysk/.sdkman/bin/sdkman-init.sh"

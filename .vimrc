@@ -226,6 +226,7 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'kmnk/vim-unite-giti'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'elzr/vim-json'
 
 call neobundle#end()
 filetype plugin indent on
@@ -285,3 +286,5 @@ nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
 vmap <Enter> <Plug>(EasyAlign)
 " easy-align を呼んだ上で，移動したりテキストオブジェクトを指定して整形 (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+let g:vim_json_syntax_conceal = 0
