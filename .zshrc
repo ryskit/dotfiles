@@ -97,3 +97,8 @@ setopt extended_glob
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/rysk/.sdkman"
 [[ -s "/Users/rysk/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/rysk/.sdkman/bin/sdkman-init.sh"
+
+# GOLang
+#export GOROOT="/usr/local/opt/go/libexec"
+#export GOPATH="$HOME/go"
+#export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
