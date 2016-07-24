@@ -49,6 +49,7 @@ export PATH="/Applications/MAMP/Library/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH=/usr/local/bin:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PGDATA=/usr/local/var/postgres
 eval "$(rbenv init -)"
 export PYENV_ROOT=${HOME}/.pyenv
