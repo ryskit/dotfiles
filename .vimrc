@@ -114,6 +114,8 @@ colorscheme Tomorrow-Night
 highlight LineNr ctermfg=154
 " インデントガイド
 set list listchars=tab:\¦\
+" クリップボードにコピー
+set clipboard=unnamed,autoselect
 "---------------------------
 "" Start Neobundle Settings.
 "---------------------------

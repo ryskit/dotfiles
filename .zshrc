@@ -66,7 +66,7 @@ colors
 # プロンプト 1行表示
 # PROMPT="%~ %# "
 # 2行表示
-PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~ %# "
+PROMPT="[%n@%m %F{cyan}%T%f]%{${reset_color}%} %~ %# "
 
 # 補完
 # 補完機能を有効にする
@@ -99,7 +99,5 @@ setopt extended_glob
 export SDKMAN_DIR="/Users/rysk/.sdkman"
 [[ -s "/Users/rysk/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/rysk/.sdkman/bin/sdkman-init.sh"
 
-# GOLang
-#export GOROOT="/usr/local/opt/go/libexec"
-#export GOPATH="$HOME/go"
-#export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
+export GOPATH="$HOME/dev"
+export PATH="$GOPATH/bin:$PATH" 
