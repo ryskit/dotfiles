@@ -229,6 +229,7 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'kmnk/vim-unite-giti'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'elzr/vim-json'
+" NeoBundle 'faith/vim-go'
 
 call neobundle#end()
 filetype plugin indent on

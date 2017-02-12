@@ -7,6 +7,8 @@ alias lla='ls -la'
 alias rm='rm -i'
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
+alias g='cd $(ghq root)/$(ghq list | peco)'
+alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 
 # --------------------
 # Git Ariases
@@ -44,20 +46,47 @@ alias gcnfl='git config -l'
 #--------------------
 # export
 #--------------------
+# MAMP
 export PATH="/Applications/MAMP/bin/php/php7.0.0/bin:$PATH"
 export PATH="/Applications/MAMP/Library/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
+
+export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
-export PATH="$HOME/.rbenv/bin:$PATH"
+
+# activator
+export PATH="$HOME/activator-1.3.12/bin:$PATH"
+
+# node
 export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PGDATA=/usr/local/var/postgres
+
+# yarn
+export PATH="$PATH:`yarn global bin`"
+
+# GO LANG
+export GOPATH="$HOME/dev"
+export PATH="$GOPATH/bin:$PATH" 
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# python pyenv
 export PYENV_ROOT=${HOME}/.pyenv
 if [ -d "${PYENV_ROOT}" ]; then
   export PATH=${PYENV_ROOT}/bin:$PATH
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
+
+#--------------------
+# export DB
+#--------------------
+export PATH=/usr/local/Cellar/mysql/5.7.17/bin:$PATH
+export PATH=/usr/local/Cellar/postgresql/9.6.2/bin/postgres:$PATH
+export PGDATA=/usr/local/var/postgres
+
+
+# ========================================================
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -99,5 +128,14 @@ setopt extended_glob
 export SDKMAN_DIR="/Users/rysk/.sdkman"
 [[ -s "/Users/rysk/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/rysk/.sdkman/bin/sdkman-init.sh"
 
-export GOPATH="$HOME/dev"
-export PATH="$GOPATH/bin:$PATH" 
+bindkey '^]' peco-src
+
+function peco-src() {
+  local src=$(ghq list --full-path | peco --query "$LBUFFER")
+  if [ -n "$src" ]; then
+    BUFFER="cd $src"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N peco-src
