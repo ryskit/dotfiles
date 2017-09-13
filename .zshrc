@@ -11,6 +11,11 @@ alias g='cd $(ghq root)/$(ghq list | peco)'
 alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 
 # --------------------
+# hub
+# --------------------
+function git(){hub "$@"}
+
+# --------------------
 # Git Ariases
 # --------------------
 export GIT_EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
@@ -46,12 +51,22 @@ alias gcnfl='git config -l'
 #--------------------
 # export
 #--------------------
+
+# 自作コマンド
+export PATH="$HOME/script:$PATH"
+
 # MAMP
-export PATH="/Applications/MAMP/bin/php/php7.0.0/bin:$PATH"
-export PATH="/Applications/MAMP/Library/bin:$PATH"
+#export PATH="/Applications/MAMP/bin/php/php7.0.0/bin:$PATH"
+#export PATH="/Applications/MAMP/Library/bin:$PATH"
 
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
+
+# anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
+if [ -d "${HOME}/.anyenv" ]; then
+  eval "$(anyenv init -)"
+fi
 
 # activator
 export PATH="$HOME/activator-1.3.12/bin:$PATH"
@@ -60,7 +75,8 @@ export PATH="$HOME/activator-1.3.12/bin:$PATH"
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # yarn
-export PATH="$PATH:`yarn global bin`"
+export PATH="$HOME/.yarn/bin:$PATH"
+#export PATH="$PATH:`yarn global bin`"
 
 # GO LANG
 export GOPATH="$HOME/dev"
@@ -85,6 +101,12 @@ export PATH=/usr/local/Cellar/mysql/5.7.17/bin:$PATH
 export PATH=/usr/local/Cellar/postgresql/9.6.2/bin/postgres:$PATH
 export PGDATA=/usr/local/var/postgres
 
+#export PATH=/usr/local/opt/openssl/bin:$PATH
+#export LD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$LD_LIBRARY_PATH
+#export CPATH=/usr/local/opt/openssl/include:$CPATH
+#export LDFLAGS=-L/usr/local/opt/openssl/lib
+#export CPPFLAGS=-I/usr/local/opt/openssl/include
+#export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig:$PKG_CONFIG_PATH
 
 # ========================================================
 
