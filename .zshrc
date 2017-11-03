@@ -78,9 +78,13 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH="$HOME/.yarn/bin:$PATH"
 #export PATH="$PATH:`yarn global bin`"
 
-# GO LANG
+# Golang
+export GO_VERSION=1.9
+export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
 export GOPATH="$HOME/dev"
-export PATH="$GOPATH/bin:$PATH" 
+export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
+export PATH=$GOROOT/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
