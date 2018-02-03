@@ -1,0 +1,63 @@
+"""""""""""""""""""""""""""""
+"keymap
+""""""""""""""""""""""""""""""
+nnoremap s <Nop>
+" 分割したウィンドウ間の移動
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sw <C-w>w
+" 分割したウィンドウそのものを移動
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
+" ウィンドウを分割
+""" 水平分割
+nnoremap ss :<C-u>sp<CR>
+""" 垂直分割
+nnoremap sv :<C-u>vs<CR>
+" タブページ関連
+
+" 新規タブ
+nnoremap st :<C-u>tabnew<CR>
+
+" 次のタブに切り替え
+nnoremap sn gt
+""" 前のタブに切り替え
+nnoremap sp gT
+" 挿入モードでのカーソル移動
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+" ウィンドウを閉じる
+nnoremap sq :<C-u>q<CR>
+" バッファを閉じる
+nnoremap sQ :<C-u>bd<CR>
+" insertモードから抜ける
+inoremap <silent> jj <ESC>
+noremap <S-h>   ^
+noremap <S-j>   }
+noremap <S-k>   {
+noremap <S-l>   $
+" ノーマルモードでもリターンキーで改行できる
+nnoremap <CR> A<CR><ESC>
+
+" xキーで文字を削除してもヤンクした内容が消えないようにする
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+""""""""""""""""""""""""""""""
+"各種オプションの設定
+""""""""""""""""""""""""""""""
+" 小文字のみで検索したときに大文字小文字を無視する
+set smartcase
+" カーソルを行頭、行末で止まらないようにする
+set whichwrap=b,s,h,l,<,>,[,]
+
+""""""""""""""""""""""""""""""
+" 検索結果のハイライトをEsc連打でクリアする
+""""""""""""""""""""""""""""""
+nnoremap <ESC><ESC> :nohlsearch<CR>
