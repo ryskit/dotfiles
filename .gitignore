@@ -37,4 +37,6 @@ Thumbsdb
 .idea
 *~
 .vim/bundle/*
+!.keep
 .vim/.netrwhist
+
