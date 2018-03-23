@@ -14,7 +14,6 @@ alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 # hub
 # --------------------
 function git(){hub "$@"}
-alias hubb='hub browse'
 
 # --------------------
 # Git Ariases
@@ -53,41 +52,24 @@ alias gcnfl='git config -l'
 # export
 #--------------------
 
-# 自作コマンド
-export PATH="$HOME/script:$PATH"
-
-# MAMP
-#export PATH="/Applications/MAMP/bin/php/php7.0.0/bin:$PATH"
-#export PATH="/Applications/MAMP/Library/bin:$PATH"
-
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 
-# java
-export JAVA_HOME=`/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java_home -v "9"`
-PATH=${JAVA_HOME}/bin:${PATH}
+#java 
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home
+PATH=${JAVA_HOME}/bin:${PATH}:${PLAY_HOME}
 
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 if [ -d "${HOME}/.anyenv" ]; then
   eval "$(anyenv init -)"
-  for D in `ls $HOME/.anyenv/envs`
-  do
-    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
-  done
 fi
 
-#direnv
-eval "$(direnv hook zsh)"
-
-# pyenv
-eval "$(pyenv virtualenv-init -)"
-
 # activator
-export PATH="$HOME/activator-1.3.12/bin:$PATH"
+#export PATH="$HOME/activator-1.3.12/bin:$PATH"
 
 # node
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+#export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # yarn
 export PATH="$HOME/.yarn/bin:$PATH"
@@ -100,6 +82,9 @@ export GOPATH="$HOME/dev"
 export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
 export PATH=$GOROOT/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
+
+# Elixir
+export PATH="$HOME/.exenv/bin:$PATH"
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -116,9 +101,9 @@ eval "$(rbenv init -)"
 #--------------------
 # export DB
 #--------------------
-export PATH=/usr/local/Cellar/mysql/5.7.17/bin:$PATH
-export PATH=/usr/local/Cellar/postgresql/9.6.2/bin/postgres:$PATH
-export PGDATA=/usr/local/var/postgres
+#export PATH=/usr/local/Cellar/mysql/5.7.17/bin:$PATH
+#export PATH=/usr/local/Cellar/postgresql/9.6.2/bin/postgres:$PATH
+#export PGDATA=/usr/local/var/postgres
 
 #export PATH=/usr/local/opt/openssl/bin:$PATH
 #export LD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$LD_LIBRARY_PATH
@@ -165,10 +150,6 @@ setopt auto_cd
 # 高機能なワイルドカード展開を使用する
 setopt extended_glob
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/rysk/.sdkman"
-[[ -s "/Users/rysk/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/rysk/.sdkman/bin/sdkman-init.sh"
-
 bindkey '^]' peco-src
 
 function peco-src() {
@@ -181,9 +162,13 @@ function peco-src() {
 }
 zle -N peco-src
 
+if sed --version 2>/dev/null | grep -q GNU; then
+  alias sedi='sed -i '
+else
+  alias sedi='sed -i "" '
+fi
 
-
-### GIT 
+### GIT
 
 # ブランチ名を色付きで表示させるメソッド
 function rprompt-git-current-branch {
@@ -224,3 +209,7 @@ setopt prompt_subst
 
 # プロンプトの右側(RPROMPT)にメソッドの結果を表示させる
 RPROMPT='`rprompt-git-current-branch`'
+
+# direnv
+
+eval "$(direnv hook zsh)"
