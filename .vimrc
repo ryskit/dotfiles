@@ -49,6 +49,10 @@ nnoremap <CR> A<CR><ESC>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+vnoremap <Space><CR> :!sh<CR>
+nnoremap <Space><CR> V:!sh<CR>
+
 """"""""""""""""""""""""""""""
 "各種オプションの設定
 """"""""""""""""""""""""""""""
