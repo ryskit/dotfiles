@@ -1,0 +1,24 @@
+# Settings
+#-------------------------------------------------------------------------------
+# shell
+set -g default-shell /usr/local/bin/fish
+
+# window/pane
+set -g base-index 1
+setw -g pane-base-index 1
+
+# mouse
+set -g mouse on
+
+# colors
+set -g default-terminal "screen-256color"
+
+# copy modes
+setw -g mode-keys vi
+
+# disable delay
+set -s escape-time 0
+
+# Bindings
+#-------------------------------------------------------------------------------
+bind -n C-k clear-history
