@@ -6,3 +6,17 @@ repo = 'Shougo/deoplete.nvim'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add='''
+nnoremap <silent> <C-e> :NERDTreeToggle<CR>
+let g:NERDTreeWinSize=30
+let g:NERDTreeShowBookmarks=1
+let g:NERDTreeMapUpdir=''
+let g:NERDTreeMapOpenSplit='<C-j>'
+let g:NERDTreeMapOpenVSplit='<C-l>'
+let g:NERDTreeQuitOnOpen=1
+let g:NERDTreeShowHidden=1
+let g:NERDTreeIgnore=['\.git$', '\.clean$', '\.swp$', '\.bak$', '\~$']
+'''
