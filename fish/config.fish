@@ -30,6 +30,7 @@ direnv hook fish | source
 # enable local tools
 set -gx PATH $HOME/bin $PATH
 set -g fish_user_paths "/usr/local/opt/gettext/bin" $fish_user_paths
+set -Ux fish_user_paths $HOME/.anyenv/bin $fish_user_paths
 
 function fish_user_key_bindings
   bind \cr 'peco_select_history (commandline -b)'

@@ -16,7 +16,6 @@ let g:NERDTreeShowBookmarks=1
 let g:NERDTreeMapUpdir=''
 let g:NERDTreeMapOpenSplit='<C-j>'
 let g:NERDTreeMapOpenVSplit='<C-l>'
-let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeShowHidden=1
 let g:NERDTreeIgnore=['\.git$', '\.clean$', '\.swp$', '\.bak$', '\~$']
 '''
