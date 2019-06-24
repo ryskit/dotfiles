@@ -32,6 +32,10 @@ nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
 
+" shell command
+noremap <Space><CR> :!sh<CR>
+nnoremap <Space><CR> V:!sh<CR>
+
 " horizontal split
 nnoremap ss :<C-u>sp<CR>
 
@@ -47,6 +51,9 @@ set smartcase
 
 " Ignore case on insert completion.
 set infercase
+
+noremap <Space><CR> :!sh<CR>
+nnoremap <Space><CR> V:!sh<CR>
 
 set directory-=.
 if v:version >= 703
