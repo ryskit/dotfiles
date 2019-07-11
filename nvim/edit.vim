@@ -45,6 +45,8 @@ nnoremap sv :<C-u>vs<CR>
 " escape insert mode
 inoremap <silent> jj <ESC>
 
+nnoremap <ESC><ESC> :nohlsearch<CR>
+
 " search
 set ignorecase
 set smartcase
