@@ -20,6 +20,7 @@ alias gc='git commit'
 alias gcm='git commit -m'
 alias gco='git checkout'
 alias gcob='git checkout -b'
+alias gm='git merge'
 alias gd='git diff'
 alias gl='git log'
 alias glg='git log --graph --oneline --decorate --all'
@@ -29,9 +30,18 @@ alias gs='git status'
 alias gss='git status -s'
 alias gcnfl='git config -l'
 
+# ------------------------
+# SBJ用
+# ------------------------
+alias authcustomdoc="open https://github.com/cm-sbj/auth-custom/wiki/%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E6%96%B9%E6%B3%95"
+alias smapapidoc="open https://ryskit.esa.io/posts/169"
+
 # export
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/Cellar/mysql@5.7/5.7.27_1/bin:$PATH
+export SDKROOT="$(xcrun --sdk macosx --show-sdk-path)"
+export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"
 
 # classmethod
 if [ -d $HOME/.anyenv ] ; then
@@ -39,13 +49,15 @@ if [ -d $HOME/.anyenv ] ; then
     eval "$(anyenv init -)"
 fi
 export PATH="/usr/local/opt/ncurses/bin:$PATH"
-export GO_VERSION=1.11.2
-export GOPATH=$HOME/dev
+export GOPATH=$(go env GOPATH)
+export PATH=$PATH:$GOPATH/bin
 eval "$(rbenv init - zsh)"
 eval "$(goenv init -)"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
 export TERM="xterm-256color"
+#export PATH=$PATH:~/.anyenv/envs/ndenv/versions/v13.0.1/lib/node_modules
+#export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
 source ~/.cargo/env
 
@@ -64,6 +76,7 @@ source ~/.zplug/init.zsh
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 zplug install
 zplug load
+
 
 autoload -Uz colors
 colors
@@ -90,5 +103,14 @@ function peco-src() {
 zle -N peco-src
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/ryskit/.sdkman"
-[[ -s "/Users/ryskit/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/ryskit/.sdkman/bin/sdkman-init.sh"
+#export SDKMAN_DIR="$HOME/.sdkman"
+#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+#
+# ------------------------
+# AWS
+# ------------------------
+autoload bashcompinit && bashcompinit
+complete -C ' /usr/local/bin/aws_completer' aws
+
+
+export PATH="$HOME/.poetry/bin:$PATH"

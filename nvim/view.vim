@@ -55,9 +55,10 @@ set nowrapscan
 set nofoldenable
 
 " For conceal.
-set conceallevel=2 concealcursor=niv
+set conceallevel=0 concealcursor=niv
 
-set colorcolumn=80
+" set colorcolumn=100
+:set clipboard+=unnamed
 
 " Set background
 if !has('gui_running')

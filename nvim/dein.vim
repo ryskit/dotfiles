@@ -18,3 +18,6 @@ if dein#load_state('~/.cache/dein')
   call dein#end()
   call dein#save_state()
 endif
+
+call dein#add('lotabout/skim', { 'build': './install --all', 'merged': 0 })
+call dein#add('lotabout/skim.vim', { 'depends': 'skim' })
